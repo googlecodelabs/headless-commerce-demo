@@ -6,6 +6,15 @@
 
 This repo contains the source code to demonstrate an example headless commerce application using [Vue Storefront](https://www.vuestorefront.io/commercetools) to bootstrap and example storefront and [Commercetools](https://commercetools.com/) to provide the backing services required for online commerce.
 
+## Getting Started
+
+Clone this repo and change your working directory
+
+```bash
+git clone https://github.com/googlecodelabs/headless-commerce-demo.git
+cd headless-commerce-demo
+```
+
 ## Commercetools
 
 In order to run this sample, you will need access to a Commercetools account. Feel free to use an existing account or you can sign up for a 60-day [free trial](https://commercetools.com/free-trial).
