@@ -1,0 +1,12 @@
+key,externalId,name.de,slug.de,name.en,slug.en,name.it,slug.it,parentId,webImageUrl,iosImageUrl
+clothing,1,Clothing,clothing,Clothing,clothing,Clothing,clothing,,,
+accessories,2,Accessories,accessories,Accessories,accessories,Accessories,accessories,,,
+home,3,Home,home,Home,home,Home,home,,,
+beauty,4,Beauty,beauty,Beauty,beauty,Beauty,beauty,,,
+hair,5,Hair,beauty-hair,Hair,beauty-hair,Hair,beauty-hair,4,,
+kitchen,6,Kitchen,home-kitchen,Kitchen,home-kitchen,Kitchen,home-kitchen,3,,
+decor,7,Decor,home-decor,Decor,home-decor,Decor,home-decor,3,,
+tops,8,Tops,clothing-tops,Tops,clothing-tops,Tops,clothing-tops,1,,
+footwear,9,Footwear,clothing-footwear,Footwear,clothing-footwear,Footwear,clothing-footwear,1,,
+glasses,10,Glasses,accessories-glasses,Glasses,accessories-glasses,Glasses,accessories-glasses,2,,
+watches,11,Watches,accessories-watches,Watches,accessories-watches,Watches,accessories-watches,2,,

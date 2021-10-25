@@ -1,0 +1,5 @@
+# Ignore child repo
+commercetools-sunrise-data
+
+# Ignore env file
+set_env.sh

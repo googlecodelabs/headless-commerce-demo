@@ -1,0 +1,32 @@
+[
+  {
+    "customerNumber": "1",
+    "email": "test.user@fake.com",
+    "firstName": "Test",
+    "lastName": "User",
+    "title": "",
+    "password": "p@ssword",
+    "addresses": [
+      {
+        "id": "PPM3YhMK",
+        "title": "Home Address",
+        "firstName": "Test",
+        "lastName": "User",
+        "streetName": "Fancy Street",
+        "streetNumber": "123",
+        "postalCode": "55555",
+        "city": "New York",
+        "state": "New York",
+        "country": "US",
+        "phone": "+15555555555",
+        "mobile": "+15555555555",
+        "email": "test.user@fake.com"
+      }
+    ],
+    "shippingAddressIds": ["PPM3YhMK"],
+    "billingAddressIds": ["PPM3YhMK"],
+    "isEmailVerified": true,
+    "key": "testKey",
+    "dateOfBirth": "2001-01-01"
+  }
+]
