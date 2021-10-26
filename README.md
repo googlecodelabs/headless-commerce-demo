@@ -31,7 +31,7 @@ Commercetools is also available on the [Google Cloud Marketplace](https://consol
 
 Commercetools has an existing sample dataset for their example Sunrise Store. We will be providing our own data but using the data import process Commercetools built to import our custom data into our Merchant Center.
 
-Run the following commands to clone the sunrise data repo and copy our sample data over.
+From the root directory, run the following commands to clone the sunrise data repo and copy our sample data over
 
 ```bash
 git clone https://github.com/commercetools/commercetools-sunrise-data.git
@@ -168,7 +168,7 @@ Run the following command to build and deploy your source code using Cloud Build
 ```bash
 gcloud beta run deploy storefront --source=. \
   --set-secrets=CTP_CLIENT_SECRET=ctp-client-secret:latest,CTP_CLIENT_ID=ctp-client-id:latest \
-  --set-env-vars=CTP_PROJECT_KEY='$CTP_PROJECT_KEY',CTP_AUTH_URL='$CTP_AUTH_URL',CTP_API_URL='$CTP_API_URL',CTP_SCOPES='$CTP_SCOPES' \
+  --set-env-vars=CTP_PROJECT_KEY="$CTP_PROJECT_KEY",CTP_AUTH_URL="$CTP_AUTH_URL",CTP_API_URL="$CTP_API_URL",CTP_SCOPES="$CTP_SCOPES" \
   --region=us-east1 \
   --allow-unauthenticated \
   --platform=managed \
