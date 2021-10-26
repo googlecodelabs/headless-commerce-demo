@@ -77,8 +77,7 @@ export default {
       {
         i18n: { useNuxtI18nConfig: true }
       }
-    ],
-    "@nuxtjs/dotenv"
+    ]
   ],
   modules: [
     "nuxt-i18n",

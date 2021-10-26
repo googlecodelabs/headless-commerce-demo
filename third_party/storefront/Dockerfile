@@ -13,7 +13,7 @@
 # limitations under the License.
 # 
 
-FROM node:12
+FROM node:12-alpine
 
 WORKDIR /usr/src/app
 

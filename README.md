@@ -80,31 +80,25 @@ In order for our storefront to communicate with the Commercetools APIs, you will
 3. Enter a name for your client (e.g. Storefront Client)
 4. Choose the `Mobile & single-page application client` template
 5. Click `Create API client`
+6. At the bottom of the Commercetools confirmation page, choose `Environment Variables` and copy the output
+7. Create a file `set_env.sh` in the `third_party/storefront` directory of this repo and paste the text from the previous step
 
-Pause here on the confirmation page showing API credentials.
+### Create Local Environment Variables for Secrets
 
-#### Create Deployment Environment File. <a id="create-deployment-env"></a>
+Our local development server and deployment processes will use environment variables to reference our secrets to prevent hard coding them in our application.
 
-**NOTE: This is only required if plan to deploy to Cloud Run on GCP.**
-
-This file is used to set local environment variables that make deploying this solution to Cloud Run easier.
-
-1. At the bottom of the Commercetools confirmation page, choose `Environment Variables` and copy the output
-2. Create a file `set_env.sh` in the root of this repo and paste the text from the previous step
-
-#### Create Local Environment File
-
-This file is used by the local development server to interact with Commercetools API from your local development environment
-
-1. At the bottom of the Commercetools confirmation page, choose `Environment Variables (.env)` and copy the output
-2. Create a file `.env` in the `third_party/storefront` directory of this repo and paste the text from the previous step
-
-### Run Locally
-
-Run the following commands to navigate to the storefront directory, install the dependencies and start a local development server
+Run the following commands to navigate to the storefront directory and set the local environment variables
 
 ```bash
 cd third_party/storefront
+source set_env.sh
+```
+
+### Run Locally
+
+Run the following commands to install the dependencies and start a local development server
+
+```bash
 npm install
 npm run dev
 ```
@@ -130,13 +124,11 @@ Run the following command, replacing with your project id, to set the default pr
 gcloud config set project <PROJECT_ID>
 ```
 
-Run the following command to set local variables for the rest of the commands to follow, `set_env.sh` was created [previously](#create-deployment-env)
+Run the following command to set local variables for the deployment process
 
 ```bash
 export PROJECT_NUMBER=$(gcloud projects list --filter="$(gcloud config get-value project)" --format="value(PROJECT_NUMBER)")
 export CLOUD_RUN_SA="$PROJECT_NUMBER-compute@developer.gserviceaccount.com"
-
-source set_env.sh
 ```
 
 #### Enable Google Cloud Services
@@ -171,13 +163,7 @@ gcloud secrets add-iam-policy-binding ctp-client-secret \
 
 Lets deploy our application! Use the following command to build a docker container and deploy it to Cloud Run using a single command!
 
-First, make sure you are in the storefront directory by running the following command
-
-```bash
-cd third_party/storefront
-```
-
-Next, use the following command to build and deploy your source code using Cloud Build and Cloud Run
+Run the following command to build and deploy your source code using Cloud Build and Cloud Run
 
 ```bash
 gcloud beta run deploy storefront --source=. \
@@ -188,6 +174,8 @@ gcloud beta run deploy storefront --source=. \
   --platform=managed \
   --port=3000
 ```
+
+NOTE: If you receive a deadline exceeded error, run this command again
 
 ## Cleanup
 
@@ -205,10 +193,26 @@ gcloud projects delete <PROJECT_ID>
 
 If you want to keep your project and just remove the resources we created, run the following commands
 
+Delete the Cloud Run service
+
 ```bash
 gcloud run services delete storefront --region=us-east1
+```
+
+Delete Secret Manager secrets
+
+```bash
 gcloud secrets delete ctp-client-id
 gcloud secrets delete ctp-client-secret
+```
+
+Disable the services
+
+```bash
+gcloud services disable cloudbuild.googleapis.com \
+  run.googleapis.com \
+  secretmanager.googleapis.com \
+  artifactregistry.googleapis.com
 ```
 
 NOTE: Cloud Storage buckets used for Cloud Build will remain, you can delete these manually if required.
