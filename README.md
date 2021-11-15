@@ -27,11 +27,13 @@ After signing up, you should receive a verification email that takes you to the 
 
 Commercetools is also available on the [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/product/commercetools-public/commercetools-platform) making it easy to subscribe through the GCP console and have the billing added automatically to your monthly bill!
 
-## Import sample data
+## Import Sample Data
+
+### Clone Commercetools Repo and Add Tutorial Data
 
 Commercetools has an existing sample dataset for their example Sunrise Store. We will be providing our own data but using the data import process Commercetools built to import our custom data into our Merchant Center.
 
-From the root directory, run the following commands to clone the sunrise data repo and copy our sample data over
+Run the following commands to clone the sunrise data repo and copy our sample data over
 
 ```bash
 git clone https://github.com/commercetools/commercetools-sunrise-data.git
@@ -41,7 +43,7 @@ cp -r import-data commercetools-sunrise-data/data
 
 ### Create Admin API Client
 
-We will need to provide an API client with admin credentials to our import process to allow our scripts to generate the data required for our demo. Follow these steps to create and setup your Admin Client credentials.
+You will need to provide an API client with admin credentials to our import process to allow our scripts to generate the data required for our demo. Follow these steps to create and setup your Admin Client credentials.
 
 1. Go to your Merchant Center
 2. Go to Settings -> Developer Settings -> Create new API client
@@ -53,7 +55,7 @@ We will need to provide an API client with admin credentials to our import proce
 
 ### Import The Data
 
-Run the following commands to navigate to the `commercetools-sunrise-data` folder in this repository, install the dependencies and run the import script.
+Run the following commands to install the Node.js dependencies and run the import data script.
 
 ```bash
 cd commercetools-sunrise-data
@@ -61,7 +63,7 @@ npm install
 npm run import:data
 ```
 
-NOTE: If you get errors or something does not work right, you can clear the data with the following command and re-run the process again.
+NOTE: If you get errors in these scripts, you can clear the data with the following command and re-run the process again.
 
 ```bash
 npm run clean:data
@@ -103,7 +105,7 @@ npm install
 npm run dev
 ```
 
-Navigate to http://localhost:3000 to view the storefront!
+Navigate to [http://localhost:3000](http://localhost:3000) to view the storefront!
 
 ### Run on GCP
 
@@ -144,7 +146,7 @@ gcloud services enable cloudbuild.googleapis.com \
 
 #### Store Secrets with Secret Manager
 
-Use the following commands to create Secrets with Secret Manager so we can securely use them with Cloud Run
+Use the following commands to create Secrets with Secret Manager so you can securely use them with Cloud Run
 
 ```bash
 printf $CTP_CLIENT_ID | gcloud secrets create ctp-client-id  --data-file=-
@@ -191,7 +193,7 @@ gcloud projects delete <PROJECT_ID>
 
 ### Keep Your Project
 
-If you want to keep your project and just remove the resources we created, run the following commands
+If you want to keep your project and just remove the resources you created, run the following commands
 
 Delete the Cloud Run service
 
