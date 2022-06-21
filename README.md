@@ -6,6 +6,32 @@
 
 This repo contains the source code to demonstrate an example headless commerce application using [Vue Storefront](https://www.vuestorefront.io/commercetools) to bootstrap and example storefront and [Commercetools](https://commercetools.com/) to provide the backing services required for online commerce.
 
+## Prerequisites
+
+### **This codelab requires Node v14.x.x**
+
+> **Warning**
+> Newer versions of Node will throw errors while installing dependencies.
+
+If you are running this codelab using [Google Cloud - Cloud Shell Editor](https://cloud.google.com/shell), run the following commands to switch to Node v14:
+
+```bash
+nvm install 14
+nvm use 14
+```
+
+Running the following command should output the correct Node version:
+
+```bash
+node --version
+```
+
+Output
+
+```bash
+v14.x.x
+```
+
 ## Getting Started
 
 Clone this repo and change your working directory

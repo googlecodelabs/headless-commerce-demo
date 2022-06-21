@@ -42,5 +42,9 @@
     "mochawesome-merge": "^4.2.0",
     "mochawesome-report-generator": "^5.2.0",
     "vue-jest": "^4.0.0-0"
+  },
+  "engines": {
+    "node": ">=12 <=14",
+    "npm": "<=6"
   }
 }
